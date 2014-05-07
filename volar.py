@@ -350,7 +350,7 @@ class Volar(object):
 				'success' : True or False depending on success
 				...
 				if 'success' == True:
-					'videoclip' : dict containing videoclip information,
+					'clip' : dict containing videoclip information,
 						including id of new videoclip
 				else:
 					'errors' : list of errors to give reason(s) for failure
@@ -383,7 +383,7 @@ class Volar(object):
 			{
 				'success' : True or False depending on success
 				if 'success' == True:
-					'videoclip' : dict containing videoclip information,
+					'clip' : dict containing videoclip information,
 						including id of new videoclip
 				else:
 					'errors' : list of errors to give reason(s) for failure
@@ -484,7 +484,7 @@ class Volar(object):
 		@return dict
 			{
 				'success' : True or False depending on success
-				'videoclip' : dict describing videoclip that was modified.
+				'clip' : dict describing videoclip that was modified.
 				if 'success' == True:
 					'fileinfo' : dict containing information about the
 					uploaded file (if there was a file uploaded)
