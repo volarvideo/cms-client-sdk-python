@@ -296,6 +296,213 @@ class Volar(object):
 					params[key] = value
 			return self.request(route = 'api/client/broadcast/archive', method = 'GET', params = params)
 
+	def videoclips(self, params = {}):
+		"""
+		gets list of videoclips
+
+		@param dict params
+			- required -
+			'site' OR 'sites'	slug of site to filter to.
+				if passing 'sites', users can include a comma-delimited list of
+				sites.  results will reflect all videoclips in the listed
+				sites.
+			- optional -
+			'page' : current page of listings.  pages begin at '1'
+			'per_page' : number of videoclips to display per page
+			'section_id' : id of section you wish to limit list to
+			'playlist_id' : id of playlist you wish to limit list to
+			'id' : id of videoclip - useful if you only want to get details
+				of a single videoclip
+			'title' : title of videoclip.  useful for searches, as this
+				accepts incomplete titles and returns all matches.
+			'autoplay' : true or false.  defaults to false.  used in embed
+				code to prevent player from immediately playing
+			'embed_width' : width (in pixels) that embed should be.  defaults
+				to 640
+			'sort_by' : data field to use to sort.  allowed fields are date,
+				status, id, title, description
+			'sort_dir' : direction of sort.  allowed values are 'asc'
+				(ascending) and 'desc' (descending)
+		@return false on failure, dict on success.  if failed, Volar.error can
+			be used to get last error string
+		"""
+
+		if(('site' not in params) and ('sites' not in params)):
+			self.error = '"site" or "sites" parameter is required'
+			return False
+		return self.request(route = 'api/client/videoclip', params = params)
+
+	def videoclip_create(self, params = {}):
+		"""
+		create a new videoclip
+
+		@param dict params
+			- required -
+			'site':	slug of site to attach videoclip to
+			'title' : title of the new videoclip
+			- optional -
+			'description' : HTML formatted description of the videoclip.
+			'section_id' : id of the section that this videoclip should
+				be assigned.  the Volar.sections() call can give you a
+				list of available sections.  Defaults to a 'General' section
+		@return dict
+			{
+				'success' : True or False depending on success
+				...
+				if 'success' == True:
+					'videoclip' : dict containing videoclip information,
+						including id of new videoclip
+				else:
+					'errors' : list of errors to give reason(s) for failure
+			}
+		"""
+		site = params.pop('site', None)
+		if site == None:
+			self.error = 'site is required'
+			return False
+
+		params = json.dumps(params)
+		return self.request(route = 'api/client/videoclip/create', method = 'POST', params = { 'site' : site }, post_body = params)
+
+	def videoclip_update(self, params = {}):
+		"""
+		update existing videoclip
+
+		@param dict params
+			- required -
+			'site':	slug of site that id is attached to
+			'id' : id of videoclip you wish to update
+			- optional -
+			'title' : title of the new videoclip.  if supplied, CANNOT be
+				blank
+			'description' : HTML formatted description of the videoclip.
+			'section_id' : id of the section that this videoclip should
+				be assigned.  the Volar.sections() call can give you a
+				list of available sections.  Defaults to a 'General' section
+		@return dict
+			{
+				'success' : True or False depending on success
+				if 'success' == True:
+					'videoclip' : dict containing videoclip information,
+						including id of new videoclip
+				else:
+					'errors' : list of errors to give reason(s) for failure
+			}
+		"""
+		site = params.pop('site', None)
+		if site == None:
+			self.error = 'site is required'
+			return False
+
+		params = json.dumps(params)
+		return self.request(route = 'api/client/videoclip/update', method = 'POST', params = { 'site' : site }, post_body = params)
+
+	def videoclip_delete(self, params = {}):
+		"""
+		delete a videoclip
+
+		the only parameter (aside from 'site') that this function takes is 'id'
+		"""
+		site = params.pop('site', None)
+		if site == None:
+			self.error = 'site is required'
+			return False
+
+		params = json.dumps(params)
+		return self.request(route = 'api/client/videoclip/delete', method = 'POST', params = { 'site' : site }, post_body = params)
+
+	def videoclip_assign_playlist(self, params = {}):
+		"""
+		assign a videoclip to a playlist
+
+		@params dict params
+			'id' : id of videoclip
+			'playlist_id' : id of playlist
+		@return dict { 'success' : True }
+		"""
+		if('site' not in params):
+			self.error = 'site is required'
+			return False
+		return self.request(route = 'api/client/videoclip/assignplaylist', params = params)
+
+	def videoclip_remove_playlist(self, params = {}):
+		"""
+		remove a videoclip from a playlist
+
+		@params dict params
+			'id' : id of videoclip
+			'playlist_id' : id of playlist
+		@return dict { 'success' : True }
+		"""
+		if('site' not in params):
+			self.error = 'site is required'
+			return False
+		return self.request(route = 'api/client/videoclip/removeplaylist', params = params)
+
+	def videoclip_poster(self, params = {}, file_path = '', filename = ''):
+		"""
+		uploads an image file as the poster for a videoclip.
+
+		@params
+			dict params
+				'id' : id of videoclip
+			string file_path
+				if supplied, this file is uploaded to the server and attached
+				to the videoclip as an image
+			string filename
+				if supplied & file_path is also given, the uploaded file's
+				name is reported to Volar as this filename.  used for easing
+				file upload passthrus.  if not supplied, the filename from
+				file_path is used.
+		@return dict
+			{
+				'success' : True or False depending on success
+				if 'success' == False:
+					'errors' : list of errors to give reason(s) for failure
+			}
+		"""
+		if file_path == '':
+			return self.request(route = 'api/client/videoclip/poster', method = 'GET', params = params)
+		else:
+			if filename != '':
+				post = {'files' : { 'api_poster': (filename, open(file_path, 'rb'))}}
+			else:
+				post = {'files' : { 'api_poster': open(file_path, 'rb')}}
+			return self.request(route = 'api/client/videoclip/poster', method = 'POST', params = params, post_body = post)
+
+	def videoclip_archive(self, params = {}, file_path = ''):
+		"""
+		upload a video file to a videoclip.
+
+		@params
+			dict params
+				'id' : id of videoclip
+				'site' : slug of site that videoclip is attached to.
+			string file_path
+				if supplied, this file is uploaded to the server and attached
+				to the videoclip
+		@return dict
+			{
+				'success' : True or False depending on success
+				'videoclip' : dict describing videoclip that was modified.
+				if 'success' == True:
+					'fileinfo' : dict containing information about the
+					uploaded file (if there was a file uploaded)
+				else:
+					'errors' : list of errors to give reason(s) for failure
+			}
+		"""
+		if file_path == '':
+			return self.request(route = 'api/client/videoclip/archive', method = 'GET', params = params)
+		else:
+			fileParams = self.upload_file(file_path)
+			if fileParams == False:
+				return False
+			else:
+				for key, value in fileParams.iteritems():
+					params[key] = value
+			return self.request(route = 'api/client/videoclip/archive', method = 'GET', params = params)
+
 	def templates(self, params = {}):
 		"""
 		gets list of meta-data templates
