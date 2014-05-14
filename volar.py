@@ -257,11 +257,15 @@ class Volar(object):
 		if file_path == '':
 			return self.request(route = 'api/client/broadcast/poster', method = 'GET', params = params)
 		else:
-			if filename != '':
-				post = {'files' : { 'api_poster': (filename, open(file_path, 'rb'))}}
+			fileParams = self.upload_file(file_path)
+			if fileParams == False:
+				return False
 			else:
-				post = {'files' : { 'api_poster': open(file_path, 'rb')}}
-			return self.request(route = 'api/client/broadcast/poster', method = 'POST', params = params, post_body = post)
+				for key, value in fileParams.iteritems():
+					params[key] = value
+			return self.request(route = 'api/client/broadcast/poster', method = 'GET', params = params)
+			# 	post = {'files' : { 'api_poster': open(file_path, 'rb')}}
+			# return self.request(route = 'api/client/broadcast/poster', method = 'POST', params = params, post_body = post)
 
 	def broadcast_archive(self, params = {}, file_path = ''):
 		"""
