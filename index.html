@@ -1,0 +1,1366 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Volar Video Python Client SDK’s documentation! &mdash; Volar Video Python Client SDK 0.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/bootstrap-theme.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/js/code-toc.js"></script>
+    <link rel="top" title="Volar Video Python Client SDK 0.9 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">Volar Video Python Client SDK 0.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+	<div class="container-fluid">
+		<div class="row">
+			
+	<div data-spy="affix" class="col-lg-2 col-md-2 col-sm-2 hidden-xs volar-sidebar">
+		<div class="clearfix">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Volar Video Python Client SDK&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#module-volar">Module</a></li>
+<li><a class="reference internal" href="#instance-methods">Instance Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" />
+        <span class="input-group-btn">
+          <input type="submit" value="Go" class="btn btn-default" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+		</div>
+	</div>
+				<div class="col-lg-10 col-md-10 col-sm-10 pull-right">
+				
+  <div class="section" id="welcome-to-volar-video-python-client-sdk-s-documentation">
+<h1>Welcome to Volar Video Python Client SDK&#8217;s documentation!<a class="headerlink" href="#welcome-to-volar-video-python-client-sdk-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="module-volar">
+<span id="module"></span><h2>Module<a class="headerlink" href="#module-volar" title="Permalink to this headline">¶</a></h2>
+<p>SDK for interfacing with the Volar cms.  Allows pulling of lists as well
+as manipulation of records.  Requires an api user to be set up.  All
+requests (with the exception of the Volar.sites call) requires the &#8216;site&#8217;
+parameter, and &#8216;site&#8217; much match the slug value of a site that the given
+api user has access to.  Programmers can use the Volar.sites call to get
+this information.</p>
+<p>depends on:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the requests module:
+<a class="reference external" href="http://docs.python-requests.org/en/latest/user/install/#install">http://docs.python-requests.org/en/latest/user/install/#install</a></li>
+<li>Amazon&#8217;s boto module:
+<a class="reference external" href="https://aws.amazon.com/sdkforpython/">https://aws.amazon.com/sdkforpython/</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="instance-methods">
+<h2>Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="volar.Volar">
+<em class="property">class </em><tt class="descclassname">volar.</tt><tt class="descname">Volar</tt><big>(</big><em>api_key</em>, <em>secret</em>, <em>base_url</em><big>)</big><a class="headerlink" href="#volar.Volar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="volar.Volar.sites">
+<tt class="descname">sites</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.sites" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets list of sites</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict): parameters used to filter results</p>
+<ul class="last simple">
+<li><em>optional</em><ul>
+<li>&#8216;list&#8217; : type of list.  allowed values are &#8216;all&#8217;, &#8216;archived&#8217;,
+&#8216;scheduled&#8217; or &#8216;upcoming&#8217;, &#8216;upcoming_or_streaming&#8217;,
+&#8216;streaming&#8217; or &#8216;live&#8217;</li>
+<li>&#8216;page&#8217;: current page of listings.  pages begin at &#8216;1&#8217;</li>
+<li>&#8216;per_page&#8217; : number of broadcasts to display per page</li>
+<li>&#8216;section_id&#8217; : id of section you wish to limit list to</li>
+<li>&#8216;playlist_id&#8217; : id of playlist you wish to limit list to</li>
+<li>&#8216;id&#8217; : id of site - useful if you only want to get details
+of a single site.</li>
+<li>&#8216;slug&#8217; : slug of site.  useful for searches, as this accepts
+incomplete titles and returns all matches.</li>
+<li>&#8216;title&#8217; : title of site.  useful for searches, as this accepts
+incomplete titles and returns all matches.</li>
+<li>&#8216;sort_by&#8217; : data field to use to sort.  allowed fields are date,
+status, id, title, description.</li>
+<li>&#8216;sort_dir&#8217; : direction of sort.  allowed values are &#8216;asc&#8217;
+(ascending) and &#8216;desc&#8217; (descending).</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>false on failure, dict on success.  if failed, Volar.error can
+be used to get last error string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcasts">
+<tt class="descname">broadcasts</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcasts" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets list of broadcasts</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict): parameters used to filter results</p>
+<ul class="last">
+<li><p class="first"><em>required</em></p>
+<ul class="simple">
+<li>&#8216;site&#8217; OR &#8216;sites&#8217;   slug of site to filter to.
+if passing &#8216;sites&#8217;, users can include a comma-delimited list of
+sites.  results will reflect all broadcasts in the listed
+sites.</li>
+</ul>
+</li>
+<li><p class="first"><em>optional</em></p>
+<ul>
+<li><p class="first">&#8216;list&#8217; : type of list.  allowed values are &#8216;all&#8217;, &#8216;archived&#8217;, 
+&#8216;scheduled&#8217; or &#8216;upcoming&#8217;, &#8216;upcoming_or_streaming&#8217;,
+&#8216;streaming&#8217; or &#8216;live&#8217;</p>
+</li>
+<li><p class="first">&#8216;page&#8217; : current page of listings.  pages begin at &#8216;1&#8217;</p>
+</li>
+<li><p class="first">&#8216;per_page&#8217; : number of broadcasts to display per page</p>
+</li>
+<li><p class="first">&#8216;section_id&#8217; : id of section you wish to limit list to</p>
+</li>
+<li><p class="first">&#8216;playlist_id&#8217; : id of playlist you wish to limit list to</p>
+</li>
+<li><p class="first">&#8216;id&#8217; : id of broadcast - useful if you only want to get details
+of a single broadcast</p>
+</li>
+<li><p class="first">&#8216;title&#8217; : title of broadcast.  useful for searches, as this
+accepts incomplete titles and returns all matches.</p>
+</li>
+<li><p class="first">&#8216;template_data&#8217; : dict.  search broadcast template data.  should
+be in the form:</p>
+<div class="line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;field title&#8217; : &#8216;field value&#8217;,</div>
+<div class="line">&#8216;field title&#8217; : &#8216;field value&#8217;,</div>
+<div class="line">....</div>
+</div>
+<div class="line">}</div>
+</div>
+</li>
+<li><p class="first">&#8216;autoplay&#8217; : true or false.  defaults to false.  used in embed
+code to prevent player from immediately playing</p>
+</li>
+<li><p class="first">&#8216;embed_width&#8217; : width (in pixels) that embed should be.  defaults
+to 640</p>
+</li>
+<li><p class="first">&#8216;sort_by&#8217; : data field to use to sort.  allowed fields are date,
+status, id, title, description</p>
+</li>
+<li><p class="first">&#8216;sort_dir&#8217; : direction of sort.  allowed values are &#8216;asc&#8217;
+(ascending) and &#8216;desc&#8217; (descending)</p>
+</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>false on failure, dict on success.  if failed, Volar.error can
+be used to get last error string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcast_create">
+<tt class="descname">broadcast_create</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcast_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a new broadcast</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">volar</span><span class="o">.</span><span class="n">Volar</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">base_url</span><span class="p">)</span>      <span class="c"># create volar instance</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># create a broadcast on site &#39;mysite&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">broadcast_update</span><span class="p">({</span>
+<span class="go">                &#39;site&#39;: &#39;mysite&#39;,</span>
+<span class="go">                &#39;title&#39;: &#39;My new broadcast&#39;,</span>
+<span class="go">                &#39;date&#39;: &#39;2014-05-12 23:00:00&#39;,</span>
+<span class="go">                &#39;contact_name&#39;: &#39;my contact name&#39;,</span>
+<span class="go">                &#39;contact_email&#39;: &#39;contact@email.com&#39;,</span>
+<span class="go">                &#39;contact_phone&#39;: &#39;888 888-9999&#39;</span>
+<span class="go">        })</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;success&#39;</span><span class="p">]:</span>   <span class="c">#will be True of False</span>
+<span class="go">                print result[&#39;broadcast&#39;][&#39;id&#39;] #this will be the id of the new broadcast</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>params (dict): parameters used to create the broadcast</dt>
+<dd><ul class="first last simple">
+<li><em>required</em><ul>
+<li>&#8216;title&#8217; : title of the new broadcast</li>
+<li>&#8216;contact_name&#8217; : contact name of person we should contact if we detect problems with this broadcast</li>
+<li>&#8216;contact_phone&#8217; : phone we should use to contact contact_name person</li>
+<li>&#8216;contact_sms&#8217; : sms number we should use to send text messages to contact_name person</li>
+<li>&#8216;contact_email&#8217; : email address we should use to send emails to contact_name person
+- note that contact_phone can be omitted if contact_sms is supplied, and vice-versa</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;description&#8217; : HTML formatted description of the broadcast.</li>
+<li>&#8216;status&#8217; : currently only supports &#8216;scheduled&#8217; &amp; &#8216;upcoming&#8217;</li>
+<li>&#8216;timezone&#8217; : timezone of given date.  only timezones listed
+on <a class="reference external" href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> are supported.
+defaults to UTC</li>
+<li>&#8216;date&#8217; : date (string) of broadcast event.  will be converted
+to UTC if the given timezone is given.  note that if the
+system cannot read the date, or if it isn&#8217;t supplied, it
+will default it to the current date &amp; time.</li>
+<li>&#8216;section_id&#8217; : id of the section that this broadcast should
+be assigned.  the Volar.sections() call can give you a
+list of available sections.  Defaults to a &#8216;General&#8217; section</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">...</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;broadcast&#8217; : dict containing broadcast information,</div>
+<div class="line-block">
+<div class="line">including id of new broadcast</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcast_update">
+<tt class="descname">broadcast_update</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcast_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>update existing broadcast</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">volar</span><span class="o">.</span><span class="n">Volar</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">base_url</span><span class="p">)</span>      <span class="c"># create volar instance</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># find broadcast with id 123 and change its title</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">broadcast_update</span><span class="p">({</span>
+<span class="go">                &#39;id&#39;: 123,</span>
+<span class="go">                &#39;site&#39;: &#39;mysite&#39;,</span>
+<span class="go">                &#39;title&#39;: &#39;Change my title to this&#39;</span>
+<span class="go">        })</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;success&#39;</span><span class="p">]</span> <span class="c">#will be True of False</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>params (dict): parameters used to update the broadcast</dt>
+<dd><ul class="first last simple">
+<li><em>required</em><ul>
+<li>&#8216;id&#8217; : id of broadcast you wish to update</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;title&#8217; : title of the new broadcast.  if supplied, CANNOT be
+blank</li>
+<li>&#8216;description&#8217; : HTML formatted description of the broadcast.</li>
+<li>&#8216;status&#8217; : currently only supports &#8216;scheduled&#8217; &amp; &#8216;upcoming&#8217;</li>
+<li>&#8216;timezone&#8217; : timezone of given date.  only timezones listed
+on <a class="reference external" href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> are supported.
+defaults to UTC</li>
+<li>&#8216;date&#8217; : date (string) of broadcast event.  will be converted
+to UTC if the given timezone is given.  note that if the
+system cannot read the date, or if it isn&#8217;t supplied, it
+will default it to the current date &amp; time.</li>
+<li>&#8216;section_id&#8217; : id of the section that this broadcast should
+be assigned.  the Volar.sections() call can give you a
+list of available sections.  Defaults to a &#8216;General&#8217; section</li>
+<li>&#8216;contact_name&#8217; : contact name of person we should contact if we detect problems with this broadcast</li>
+<li>&#8216;contact_phone&#8217; : phone we should use to contact contact_name person</li>
+<li>&#8216;contact_sms&#8217; : sms number we should use to send text messages to contact_name person</li>
+<li>&#8216;contact_email&#8217; : email address we should use to send emails to contact_name person
+- note that contact_phone can be omitted if contact_sms is supplied, and vice-versa</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">...</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;broadcast&#8217; : dict containing broadcast information,</div>
+<div class="line-block">
+<div class="line">including id of updated broadcast</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcast_delete">
+<tt class="descname">broadcast_delete</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcast_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete a broadcast</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">volar</span><span class="o">.</span><span class="n">Volar</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">base_url</span><span class="p">)</span>      <span class="c"># create volar instance</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># find broadcast with id 123 and delete it.</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">broadcast_delete</span><span class="p">({</span>
+<span class="go">                &#39;id&#39;: 123,</span>
+<span class="go">                &#39;site&#39;: &#39;mysite&#39;</span>
+<span class="go">        })</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;success&#39;</span><span class="p">]</span> <span class="c">#will be True of False</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict): arguments related to selecting and deleting a broadcast
+The following fields are <strong>required</strong>
+- &#8216;id&#8217; : id of broadcast
+- &#8216;site&#8217; : slug of site broadcast is owned by</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcast_assign_playlist">
+<tt class="descname">broadcast_assign_playlist</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcast_assign_playlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>assign a broadcast to a playlist</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">volar</span><span class="o">.</span><span class="n">Volar</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">base_url</span><span class="p">)</span>      <span class="c"># create volar instance</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># assign broadcast with id 1 to playlist with id 12.  note that</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># both must be under the &#39;mysite&#39; site.</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">broadcast_assign_playlist</span><span class="p">({</span>
+<span class="go">                &#39;id&#39;: 1,</span>
+<span class="go">                &#39;site&#39;: &#39;mysite&#39;,</span>
+<span class="go">                &#39;playlist_id&#39;: 12</span>
+<span class="go">        })</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;success&#39;</span><span class="p">]</span> <span class="c">#will be True of False</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict) : arguments related to the attachment of broadcast to
+playlist.  All of the following are required
+- &#8216;id&#8217; : id of broadcast
+- &#8216;site&#8217; : slug of site broadcast and playlist belong to
+- &#8216;playlist_id&#8217; : id of playlist</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcast_remove_playlist">
+<tt class="descname">broadcast_remove_playlist</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcast_remove_playlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove a broadcast from a playlist</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">volar</span><span class="o">.</span><span class="n">Volar</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">base_url</span><span class="p">)</span>      <span class="c"># create volar instance</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># remove broadcast with id 1 from playlist with id 12.  note that</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># both must be under the &#39;mysite&#39; site.</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">broadcast_remove_playlist</span><span class="p">({</span>
+<span class="go">                &#39;id&#39;: 1,</span>
+<span class="go">                &#39;site&#39;: &#39;mysite&#39;,</span>
+<span class="go">                &#39;playlist_id&#39;: 12</span>
+<span class="go">        })</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;success&#39;</span><span class="p">]</span> <span class="c">#will be True of False</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict) : arguments related to the removal of broadcast from
+playlist.  All of the following are required
+- &#8216;id&#8217; : id of broadcast
+- &#8216;site&#8217; : slug of site broadcast and playlist belong to
+- &#8216;playlist_id&#8217; : id of playlist</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcast_poster">
+<tt class="descname">broadcast_poster</tt><big>(</big><em>params={}</em>, <em>file_path=''</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcast_poster" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads an image file as the poster for a broadcast.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>params (dict)</dt>
+<dd><ul class="first last simple">
+<li>&#8216;id&#8217; : id of broadcast</li>
+<li>&#8216;site&#8217; : slug of site broadcast belongs to</li>
+</ul>
+</dd>
+<dt>file_path (string)</dt>
+<dd>if supplied, this file is uploaded to the server and attached
+to the broadcast as an image</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">if &#8216;success&#8217; == False:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.broadcast_archive">
+<tt class="descname">broadcast_archive</tt><big>(</big><em>params={}</em>, <em>file_path=''</em><big>)</big><a class="headerlink" href="#volar.Volar.broadcast_archive" title="Permalink to this definition">¶</a></dt>
+<dd><p>archives a broadcast.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>params (dict)</dt>
+<dd><ul class="first last simple">
+<li>&#8216;id&#8217; : id of broadcast</li>
+<li>&#8216;site&#8217; : slug of site that broadcast is attached to.</li>
+</ul>
+</dd>
+<dt>string file_path</dt>
+<dd>if supplied, this file is uploaded to the server and attached
+to the broadcast</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">&#8216;broadcast&#8217; : dict describing broadcast that was modified.</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;fileinfo&#8217; : dict containing information about the</div>
+<div class="line">uploaded file (if there was a file uploaded)</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclips">
+<tt class="descname">videoclips</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclips" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets list of videoclips</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict)</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217; OR &#8216;sites&#8217;   slug of site to filter to.
+if passing &#8216;sites&#8217;, users can include a comma-delimited list of
+sites.  results will reflect all videoclips in the listed
+sites.</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;page&#8217; : current page of listings.  pages begin at &#8216;1&#8217;</li>
+<li>&#8216;per_page&#8217; : number of videoclips to display per page</li>
+<li>&#8216;section_id&#8217; : id of section you wish to limit list to</li>
+<li>&#8216;playlist_id&#8217; : id of playlist you wish to limit list to</li>
+<li>&#8216;id&#8217; : id of videoclip - useful if you only want to get details
+of a single videoclip</li>
+<li>&#8216;title&#8217; : title of videoclip.  useful for searches, as this
+accepts incomplete titles and returns all matches.</li>
+<li>&#8216;autoplay&#8217; : true or false.  defaults to false.  used in embed
+code to prevent player from immediately playing</li>
+<li>&#8216;embed_width&#8217; : width (in pixels) that embed should be.  defaults
+to 640</li>
+<li>&#8216;sort_by&#8217; : data field to use to sort.  allowed fields are date,
+status, id, title, description</li>
+<li>&#8216;sort_dir&#8217; : direction of sort.  allowed values are &#8216;asc&#8217;
+(ascending) and &#8216;desc&#8217; (descending)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd>false on failure, dict on success.  if failed, Volar.error can
+be used to get last error string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclip_create">
+<tt class="descname">videoclip_create</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclip_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a new videoclip</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict)</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217;:     slug of site to attach videoclip to</li>
+<li>&#8216;title&#8217; : title of the new videoclip</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;description&#8217; : HTML formatted description of the videoclip.</li>
+<li>&#8216;section_id&#8217; : id of the section that this videoclip should
+be assigned.  the Volar.sections() call can give you a
+list of available sections.  Defaults to a &#8216;General&#8217; section</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">...</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;clip&#8217; : dict containing videoclip information,</div>
+<div class="line-block">
+<div class="line">including id of new videoclip</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclip_update">
+<tt class="descname">videoclip_update</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclip_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>update existing videoclip</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict)</p>
+<ul class="last simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217;:     slug of site that id is attached to</li>
+<li>&#8216;id&#8217; : id of videoclip you wish to update</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;title&#8217; : title of the new videoclip.  if supplied, CANNOT be
+blank</li>
+<li>&#8216;description&#8217; : HTML formatted description of the videoclip.</li>
+<li>&#8216;section_id&#8217; : id of the section that this videoclip should
+be assigned.  the Volar.sections() call can give you a
+list of available sections.  Defaults to a &#8216;General&#8217; section</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;clip&#8217; : dict containing videoclip information,</div>
+<div class="line-block">
+<div class="line">including id of new videoclip</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclip_delete">
+<tt class="descname">videoclip_delete</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclip_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete a videoclip</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict): arguments related to selecting and deleting a clip
+The following fields are <strong>required</strong>
+- &#8216;id&#8217; : id of clip
+- &#8216;site&#8217; : slug of site clip is owned by</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclip_assign_playlist">
+<tt class="descname">videoclip_assign_playlist</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclip_assign_playlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>assign a videoclip to a playlist</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">volar</span><span class="o">.</span><span class="n">Volar</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">base_url</span><span class="p">)</span>      <span class="c"># create volar instance</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># assign clip with id 13 to playlist with id 122.  note that</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># both must be under the &#39;mysite&#39; site.</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">videoclip_assign_playlist</span><span class="p">({</span>
+<span class="go">                &#39;id&#39;: 13,</span>
+<span class="go">                &#39;site&#39;: &#39;mysite&#39;,</span>
+<span class="go">                &#39;playlist_id&#39;: 122</span>
+<span class="go">        })</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;success&#39;</span><span class="p">]</span> <span class="c">#will be True of False</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict) : arguments related to the attachment of video clip to
+playlist.  All of the following are required
+- &#8216;id&#8217; : id of video clip
+- &#8216;site&#8217; : slug of site video clip and playlist belong to
+- &#8216;playlist_id&#8217; : id of playlist</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclip_remove_playlist">
+<tt class="descname">videoclip_remove_playlist</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclip_remove_playlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove a video clip from a playlist</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">volar</span><span class="o">.</span><span class="n">Volar</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">base_url</span><span class="p">)</span>      <span class="c"># create volar instance</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># remove video clip with id 11 from playlist with id 1322.  note that</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c"># both must be under the &#39;mysite&#39; site.</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">videoclip_remove_playlist</span><span class="p">({</span>
+<span class="go">                &#39;id&#39;: 11,</span>
+<span class="go">                &#39;site&#39;: &#39;mysite&#39;,</span>
+<span class="go">                &#39;playlist_id&#39;: 1322</span>
+<span class="go">        })</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span> <span class="n">result</span><span class="p">[</span><span class="s">&#39;success&#39;</span><span class="p">]</span> <span class="c">#will be True of False</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict) : arguments related to the removal of video clip from
+playlist.  All of the following are required
+- &#8216;id&#8217; : id of video clip
+- &#8216;site&#8217; : slug of site video clip and playlist belong to
+- &#8216;playlist_id&#8217; : id of playlist</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclip_poster">
+<tt class="descname">videoclip_poster</tt><big>(</big><em>params={}</em>, <em>file_path=''</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclip_poster" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads an image file as the poster for a videoclip.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>params (dict)</dt>
+<dd><ul class="first last simple">
+<li>&#8216;id&#8217; : id of videoclip</li>
+<li>&#8216;site&#8217; : site that video clip is owned by</li>
+</ul>
+</dd>
+<dt>file_path (string)</dt>
+<dd>if supplied, this file is uploaded to the server and attached
+to the videoclip as an image</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">if &#8216;success&#8217; == False:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.videoclip_archive">
+<tt class="descname">videoclip_archive</tt><big>(</big><em>params={}</em>, <em>file_path=''</em><big>)</big><a class="headerlink" href="#volar.Volar.videoclip_archive" title="Permalink to this definition">¶</a></dt>
+<dd><p>upload a video file to a videoclip.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>params (dict)</dt>
+<dd><ul class="first last simple">
+<li>&#8216;id&#8217; : id of videoclip</li>
+<li>&#8216;site&#8217; : slug of site that videoclip is attached to.</li>
+</ul>
+</dd>
+<dt>file_path (dict)</dt>
+<dd>if supplied, this file is uploaded to the server and attached
+to the videoclip</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">&#8216;clip&#8217; : dict describing videoclip that was modified.</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;fileinfo&#8217; : dict containing information about the</div>
+<div class="line">uploaded file (if there was a file uploaded)</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.templates">
+<tt class="descname">templates</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.templates" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets list of meta-data templates</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict)</p>
+<ul class="last simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217; : slug of site to filter to.  note that &#8216;sites&#8217; is not supported</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;page&#8217; : current page of listings.  pages begin at &#8216;1&#8217;</li>
+<li>&#8216;per_page&#8217; : number of broadcasts to display per page</li>
+<li>&#8216;broadcast_id&#8217; : id of broadcast you wish to limit list to.</li>
+<li>&#8216;section_id&#8217; : id of section you wish to limit list to.</li>
+<li>&#8216;id&#8217; : id of template - useful if you only want to get details
+of a single template</li>
+<li>&#8216;title&#8217; : title of template.  useful for searches, as this accepts
+incomplete titles and returns all matches.</li>
+<li>&#8216;sort_by&#8217; : data field to use to sort.  allowed fields are id, title,
+description, date_modified. defaults to title</li>
+<li>&#8216;sort_dir&#8217; : direction of sort.  allowed values are &#8216;asc&#8217; (ascending) and
+&#8216;desc&#8217; (descending). defaults to asc</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>false on failure, dict on success.  if failed, Volar.error can
+be used to get last error string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.template_create">
+<tt class="descname">template_create</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.template_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a new meta-data template</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict)</p>
+<ul class="last">
+<li><p class="first"><em>required</em></p>
+<ul>
+<li><p class="first">&#8216;site&#8217; : slug of site to filter to.  note that &#8216;sites&#8217; is not supported</p>
+</li>
+<li><p class="first">&#8216;title&#8217; : title of the broadcast</p>
+</li>
+<li><p class="first">&#8216;data&#8217; : list of data fields (dictionaries) assigned to template.
+should be in format:
+|   [
+|           {
+|                   &#8220;title&#8221; : (string) &#8220;field title&#8221;,
+|                   &#8220;type&#8221; : (string) &#8220;type of field&#8221;,
+|                   &#8220;options&#8221; : {...} or [...]      //only include if type supports
+|           },
+|           ...
+|   ]
+supported types are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8216;single-line&#8217; - single line of text</li>
+<li>&#8216;multi-line&#8217; - multiple-lines of text, option &#8216;rows&#8217; (not
+required) is number of lines html should display as.
+ex: &#8220;options&#8221;: {&#8216;rows&#8217;: 4}</li>
+<li>&#8216;checkbox&#8217; - togglable field.  value will be the title of
+the field.  no options.</li>
+<li>&#8216;checkbox-list&#8217; - list of togglable fields.  values should
+be included in &#8216;options&#8217; list.
+ex: &#8220;options&#8221; : [&#8220;option 1&#8221;, &#8220;option 2&#8221;, ...]</li>
+<li>&#8216;radio&#8217; - list of selectable fields, although only 1 can be
+selected at at time.  values should be included in
+&#8216;options&#8217; list.
+ex: &#8220;options&#8221; : [&#8220;option 1&#8221;, &#8220;option 2&#8221;, ...]</li>
+<li>&#8216;dropdown&#8217; - same as radio, but displayed as a dropdown.
+values should be included in &#8216;options&#8217; array.
+ex: &#8220;options&#8221; : [&#8220;option 1&#8221;, &#8220;option 2&#8221;, ...]</li>
+<li>&#8216;country&#8217; - dropdown containing country names.  if you wish
+to specify default value, include &#8220;default_select&#8221;.  this
+should not be passed as an option, but as a seperate value
+attached to the field, and accepts 2-character country
+abbreviation.</li>
+<li>&#8216;state&#8217; - dropdown containing united states state names.  if
+you wish to specify default value, include &#8220;default_select&#8221;.
+this should not be passed as an option, but as a seperate
+value attached to the field, and accepts 2-character state
+abbreviation.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first"><em>optional</em></p>
+<ul class="simple">
+<li>&#8216;description&#8217; : text used to describe the template.</li>
+<li>&#8216;section_id&#8217; : id of section to assign broadcast to. will default to &#8216;General&#8217;.</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">...</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;template&#8217; : dict containing template information,</div>
+<div class="line-block">
+<div class="line">including id of new template</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.template_update">
+<tt class="descname">template_update</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.template_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a new meta-data template</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict)</p>
+<ul class="last simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217; : slug of site to filter to.  note that &#8216;sites&#8217; is not supported</li>
+<li>&#8216;id&#8217; : numeric id of template that you are intending to update.</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;title&#8217; : title of the broadcast</li>
+<li>&#8216;data&#8217; : list of data fields assigned to template.  see template_create() for format</li>
+<li>&#8216;description&#8217; : text used to describe the template.</li>
+<li>&#8216;section_id&#8217; : id of section to assign broadcast to. will default to &#8216;General&#8217;.</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">...</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;template&#8217; : dict containing template information,</div>
+<div class="line-block">
+<div class="line">including id of new template</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Note that if you do not have direct access to update a template (it may be domain or
+client level), a new template will be created and returned to you that does have
+the permissions set for you to modify.  keep this in mind when updating templates.</p>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.template_delete">
+<tt class="descname">template_delete</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.template_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete a meta-data template</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict): arguments related to selecting and deleting a template
+The following fields are <strong>required</strong>
+- &#8216;id&#8217; : id of clip
+- &#8216;site&#8217; : slug of site clip is owned by</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.sections">
+<tt class="descname">sections</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.sections" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets list of sections</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict): arguments related to filtering section results</p>
+<ul class="last simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217; OR &#8216;sites&#8217;   slug of site to filter to.
+if passing &#8216;sites&#8217;, users can include a comma-delimited list of
+sites.  results will reflect all sections in the listed sites.</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;page&#8217; : current page of listings.  pages begin at &#8216;1&#8217;</li>
+<li>&#8216;per_page&#8217; : number of broadcasts to display per page</li>
+<li>&#8216;broadcast_id&#8217; : id of broadcast you wish to limit list to.
+will always return 1</li>
+<li>&#8216;video_id&#8217; : id of video you wish to limit list to.  will always
+return 1.  note this is not fully supported yet.</li>
+<li>&#8216;id&#8217; : id of section - useful if you only want to get details of
+a single section</li>
+<li>&#8216;title&#8217; : title of section.  useful for searches, as this accepts
+incomplete titles and returns all matches.</li>
+<li>&#8216;sort_by&#8217; : data field to use to sort.  allowed fields are id,
+title</li>
+<li>&#8216;sort_dir&#8217; : direction of sort.  allowed values are &#8216;asc&#8217;
+(ascending) and &#8216;desc&#8217; (descending)</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>false on failure, dict on success.  if failed, Volar.error can
+be used to get last error string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.playlists">
+<tt class="descname">playlists</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.playlists" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets list of playlists</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict): arguments related to filtering playlist results</p>
+<ul class="last simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217; OR &#8216;sites&#8217;   slug of site to filter to.
+if passing &#8216;sites&#8217;, users can include a comma-delimited list of
+sites.  results will reflect all playlists in the listed
+sites.</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;page&#8217; : current page of listings.  pages begin at &#8216;1&#8217;</li>
+<li>&#8216;per_page&#8217; : number of broadcasts to display per page</li>
+<li>&#8216;broadcast_id&#8217; : id of broadcast you wish to limit list to.</li>
+<li>&#8216;video_id&#8217; : id of video you wish to limit list to.  note this is
+not fully supported yet.</li>
+<li>&#8216;section_id&#8217; : id of section you wish to limit list to</li>
+<li>&#8216;id&#8217; : id of playlist - useful if you only want to get details of
+a single playlist</li>
+<li>&#8216;title&#8217; : title of playlist.  useful for searches, as this accepts
+incomplete titles and returns all matches.</li>
+<li>&#8216;sort_by&#8217; : data field to use to sort.  allowed fields are id,
+title</li>
+<li>&#8216;sort_dir&#8217; : direction of sort.  allowed values are &#8216;asc&#8217;
+(ascending) and &#8216;desc&#8217; (descending)</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>false on failure, dict on success.  if failed, Volar.error can
+be used to get last error string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.playlist_create">
+<tt class="descname">playlist_create</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.playlist_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a new playlist</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict): arguments related to creating a playlist</p>
+<ul class="last simple">
+<li><em>required</em><ul>
+<li>&#8216;site&#8217; : slug of site to attach playlist to.
+note that &#8216;sites&#8217; is not supported</li>
+<li>&#8216;title&#8217; : title of the new playlist</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;description&#8217; : HTML formatted description of the playlist.</li>
+<li>&#8216;available&#8217; : flag whether or not the playlist is available
+for public viewing.  accepts &#8216;yes&#8217;,&#8217;available&#8217;,&#8217;active&#8217;,
+&amp; &#8216;1&#8217; (to flag availability) and &#8216;no&#8217;,&#8217;unavailable&#8217;,
+&#8216;inactive&#8217;, &amp; &#8216;0&#8217; (to flag non-availability)</li>
+<li>&#8216;section_id&#8217; : id of the section that this playlist should
+be assigned.  the Volar.sections() call can give you a
+list of available sections.  Defaults to a &#8216;General&#8217; section</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">...</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;playlist&#8217; : dict containing playlist information,</div>
+<div class="line-block">
+<div class="line">including id of new playlist</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.playlist_update">
+<tt class="descname">playlist_update</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.playlist_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>update existing playlist</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">params (dict): arguments related to changing attributes on a particular playlist</p>
+<ul class="last simple">
+<li><em>required</em><ul>
+<li>&#8216;id&#8217; : id of playlist you wish to update</li>
+<li>&#8216;site&#8217; : slug of site to attach playlist to.
+note that &#8216;sites&#8217; is not supported</li>
+</ul>
+</li>
+<li><em>optional</em><ul>
+<li>&#8216;title&#8217; : title of the new playlist.  <strong>if supplied, CANNOT be blank</strong>.</li>
+<li>&#8216;description&#8217; : HTML formatted description of the playlist.</li>
+<li>&#8216;available&#8217; : flag whether or not the playlist is available
+for public viewing.  accepts &#8216;yes&#8217;,&#8217;available&#8217;,&#8217;active&#8217;,
+&amp; &#8216;1&#8217; (to flag availability) and &#8216;no&#8217;,&#8217;unavailable&#8217;,
+&#8216;inactive&#8217;, &amp; &#8216;0&#8217; (to flag non-availability)</li>
+<li>&#8216;section_id&#8217; : id of the section that this playlist should
+be assigned.  the Volar.sections() call can give you a
+list of available sections.  Defaults to a &#8216;General&#8217; section</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True or False depending on success</div>
+<div class="line">if &#8216;success&#8217; == True:</div>
+<div class="line-block">
+<div class="line">&#8216;playlist&#8217; : dict containing playlist information,</div>
+<div class="line-block">
+<div class="line">including id of new playlist</div>
+</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217; : list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="volar.Volar.playlist_delete">
+<tt class="descname">playlist_delete</tt><big>(</big><em>params={}</em><big>)</big><a class="headerlink" href="#volar.Volar.playlist_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete a playlist</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>params (dict): arguments related to selecting and deleting a playlist
+The following fields are <strong>required</strong>
+- &#8216;id&#8217; : id of playlist
+- &#8216;site&#8217; : slug of site playlist is owned by</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>dict</dt>
+<dd><div class="first last line-block">
+<div class="line">{</div>
+<div class="line-block">
+<div class="line">&#8216;success&#8217; : True/False</div>
+<div class="line">if &#8216;success&#8217; != True:</div>
+<div class="line-block">
+<div class="line">&#8216;errors&#8217;: list of errors to give reason(s) for failure</div>
+</div>
+</div>
+<div class="line">}</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+				</div>
+			
+		</div>
+	</div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">Volar Video Python Client SDK 0.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Volar VIdeo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
