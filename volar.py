@@ -880,6 +880,78 @@ class Volar(object):
 			return False
 
 		return self.request(route = 'api/client/section', params = params)
+	
+	def section_create(self, params = {}):
+		"""
+		create a new Section
+
+		Args:
+			params (dict): arguments related to creating a Section
+			
+			- *required*
+			
+			  - 'site' : slug of site to attach section to.
+			    note that 'sites' is not supported
+			  - 'title' : title of the new section
+			
+			- *optional*
+			
+			  - 'description' : HTML formatted description of the section.
+		Returns:
+			dict
+			 | {
+			 | 	'success' : True or False depending on success
+			 | 	...
+			 | 	if 'success' == True:
+			 | 		'section' : dict containing section information,
+			 | 			including id of new section
+			 | 	else:
+			 | 		'errors' : list of errors to give reason(s) for failure
+			 | }
+		"""
+		site = params.pop('site', None)
+		if site == None:
+			self.error = 'site is required'
+			return False
+
+		params = json.dumps(params)
+		return self.request(route = 'api/client/section/create', method = 'POST', params = { 'site' : site }, post_body = params)
+
+	def section_update(self, params = {}):
+		"""
+		update existing section
+
+		Args:
+			params (dict): arguments related to changing attributes on a particular section
+			
+			- *required*
+
+			  - 'id' : id of section you wish to update
+			  - 'site' : slug of site to attach section to.
+			    note that 'sites' is not supported
+			
+			- *optional*
+
+			  - 'title' : title of the new section.  **if supplied, CANNOT be blank**.
+			  - 'description' : HTML formatted description of the section.
+		Returns:
+			dict
+			 | {
+			 | 	'success' : True or False depending on success
+			 | 	if 'success' == True:
+			 | 		'section' : dict containing section information,
+			 | 			including id of new section
+			 | 	else:
+			 | 		'errors' : list of errors to give reason(s) for failure
+			 | }
+		"""
+		site = params.pop('site', None)
+		if site == None:
+			self.error = 'site is required'
+			return False
+
+		params = json.dumps(params)
+		return self.request(route = 'api/client/section/update', method = 'POST', params = { 'site' : site }, post_body = params)
 
 	def playlists(self, params = {}):
 		"""
